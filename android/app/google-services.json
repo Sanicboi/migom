@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "190974051439",
+    "project_id": "migom-f6a91",
+    "storage_bucket": "migom-f6a91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190974051439:android:da4a878cdf34e48990799a",
+        "android_client_info": {
+          "package_name": "com.mycompany.migom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190974051439-l5b9monsp43o3ruko87h9dbpje23jgfh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.migom",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "190974051439-7kc6oe09g7csunl9cm8n2uku4717ejb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJib7B-QJlMIt7C3egr8BORSdGJefdmEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190974051439-7kc6oe09g7csunl9cm8n2uku4717ejb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "190974051439-g9tvdi9vidulcep50qsv974hgqek3og5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.migom"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
