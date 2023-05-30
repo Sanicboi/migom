@@ -107,53 +107,53 @@ class _SafetyWidgetState extends State<SafetyWidget> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.qr_code,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'ДВУХШАГОВАЯ ПРОВЕРКА',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Ermilov',
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                //   child: Container(
+                //     width: double.infinity,
+                //     decoration: BoxDecoration(
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(15.0),
+                //     ),
+                //     child: Padding(
+                //       padding: EdgeInsetsDirectional.fromSTEB(
+                //           20.0, 20.0, 20.0, 20.0),
+                //       child: Row(
+                //         mainAxisSize: MainAxisSize.max,
+                //         mainAxisAlignment: MainAxisAlignment.start,
+                //         children: [
+                //           Icon(
+                //             Icons.qr_code,
+                //             color: Colors.black,
+                //             size: 24.0,
+                //           ),
+                //           Expanded(
+                //             child: Padding(
+                //               padding: EdgeInsetsDirectional.fromSTEB(
+                //                   10.0, 0.0, 0.0, 0.0),
+                //               child: Text(
+                //                 'ДВУХШАГОВАЯ ПРОВЕРКА',
+                //                 style: FlutterFlowTheme.of(context)
+                //                     .bodyMedium
+                //                     .override(
+                //                       fontFamily: 'Ermilov',
+                //                       fontSize: 18.0,
+                //                       fontWeight: FontWeight.bold,
+                //                       useGoogleFonts: false,
+                //                     ),
+                //               ),
+                //             ),
+                //           ),
+                //           Icon(
+                //             Icons.arrow_forward_ios_outlined,
+                //             color: Colors.black,
+                //             size: 24.0,
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Container(
@@ -169,6 +169,7 @@ class _SafetyWidgetState extends State<SafetyWidget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.phone,
@@ -192,64 +193,69 @@ class _SafetyWidgetState extends State<SafetyWidget> {
                               ),
                             ),
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 66.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.fiber_pin_outlined,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'ИЗМЕНИТЬ ПАРОЛЬ',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Ermilov',
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
-                                    ),
-                              ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_ios_outlined,
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_outlined,
                             color: Colors.black,
-                            size: 24.0,
+                            onPressed: () {
+                              context.pushNamed('changeinfo');
+                            },
+                            padding: EdgeInsets.zero,
                           ),
                         ],
                       ),
                     ),
                   ),
                 ),
+                // Padding(
+                //   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                //   child: Container(
+                //     width: double.infinity,
+                //     height: 66.0,
+                //     decoration: BoxDecoration(
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(15.0),
+                //     ),
+                //     child: Padding(
+                //       padding: EdgeInsetsDirectional.fromSTEB(
+                //           20.0, 20.0, 20.0, 20.0),
+                //       child: Row(
+                //         mainAxisSize: MainAxisSize.max,
+                //         mainAxisAlignment: MainAxisAlignment.start,
+                //         children: [
+                //           Icon(
+                //             Icons.fiber_pin_outlined,
+                //             color: Colors.black,
+                //             size: 24.0,
+                //           ),
+                //           Expanded(
+                //             child: Padding(
+                //               padding: EdgeInsetsDirectional.fromSTEB(
+                //                   10.0, 0.0, 0.0, 0.0),
+                //               child: Text(
+                //                 'ИЗМЕНИТЬ ПАРОЛЬ',
+                //                 style: FlutterFlowTheme.of(context)
+                //                     .bodyMedium
+                //                     .override(
+                //                       fontFamily: 'Ermilov',
+                //                       fontSize: 18.0,
+                //                       fontWeight: FontWeight.bold,
+                //                       useGoogleFonts: false,
+                //                     ),
+                //               ),
+                //             ),
+                //           ),
+                //           Icon(
+                //             Icons.arrow_forward_ios_outlined,
+                //             color: Colors.black,
+                //             size: 24.0,
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Container(

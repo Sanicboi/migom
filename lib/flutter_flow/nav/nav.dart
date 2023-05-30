@@ -9,12 +9,15 @@ import '/backend/backend.dart';
 import '../../auth/base_auth_user_provider.dart';
 import '../../backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
+import '../../change_phone/info.dart';
 
 import '../../index.dart';
 import '../../main.dart';
 import '../lat_lng.dart';
 import '../place.dart';
+import '../../change_phone/change_phone_widget.dart';
 import 'serialization_util.dart';
+import '../../friends/firends_widget.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -245,7 +248,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ChangeEventWidget(
                 change: params.getParam('change', ParamType.Document),
               ),
-            )
+            ),
+            FFRoute(
+                name: 'friends',
+                path: 'friends',
+                builder: (context, params) => FriendsWidget()),
+            FFRoute(
+                name: 'changephone',
+                path: 'changephone',
+                builder: (context, params) => ChangePhone()),
+            FFRoute(
+                name: 'changeinfo',
+                path: 'changeinfo',
+                builder: (context, params) => ChangeInfo())
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
