@@ -18,6 +18,8 @@ import '../place.dart';
 import '../../change_phone/change_phone_widget.dart';
 import 'serialization_util.dart';
 import '../../friends/firends_widget.dart';
+import '../../delete_account/widget.dart';
+import '../../about_us/home.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -260,7 +262,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
                 name: 'changeinfo',
                 path: 'changeinfo',
-                builder: (context, params) => ChangeInfo())
+                builder: (context, params) => ChangeInfo()),
+            FFRoute(
+                name: 'deleteaccount',
+                path: 'deleteaccount',
+                builder: (context, params) => DeleteAccount()),
+            FFRoute(
+              name: 'abouthome',
+              path: 'about',
+              builder: (context, params) => AboutHome(),
+            )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
