@@ -47,77 +47,112 @@ class _SupportWidgetState extends State<SupportWidget> {
         backgroundColor: Color(0xFFF5F5F5),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 63.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).migomWhite,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15.0),
-                        bottomRight: Radius.circular(15.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 63.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).migomWhite,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15.0),
+                          bottomRight: Radius.circular(15.0),
+                          topLeft: Radius.circular(0.0),
+                          topRight: Radius.circular(0.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 0.0, 0.0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 24.0,
+                              borderWidth: 1.0,
+                              buttonSize: 44.0,
+                              fillColor: Color(0xFFF5F5F5),
+                              icon: Icon(
+                                Icons.chevron_left,
+                                color: FlutterFlowTheme.of(context).migomBlack,
+                                size: 30.0,
+                              ),
+                              onPressed: () async {
+                                context.safePop();
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'ПОДДЕРЖКА',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Ermilov',
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                    useGoogleFonts: false,
+                                    lineHeight: 1.3,
+                                  ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 0.0, 0.0),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 24.0,
-                            borderWidth: 1.0,
-                            buttonSize: 44.0,
-                            fillColor: Color(0xFFF5F5F5),
-                            icon: Icon(
-                              Icons.chevron_left,
-                              color: FlutterFlowTheme.of(context).migomBlack,
-                              size: 30.0,
-                            ),
-                            onPressed: () async {
-                              context.safePop();
-                            },
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'ПОДДЕРЖКА',
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          81.0, 118.0, 81.0, 118.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Контактный номер',
+                            textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Ermilov',
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'SF Pro Display',
+                                  color: FlutterFlowTheme.of(context)
+                                      .migomSecondaryText,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: false,
                                   lineHeight: 1.3,
                                 ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(
-                        81.0, 118.0, 81.0, 118.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Контактный номер',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                          Text(
+                            '+7 995 900-88-99',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'SF Pro Display',
+                                  color:
+                                      FlutterFlowTheme.of(context).migomPrimary,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: false,
+                                  lineHeight: 1.3,
+                                ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 60.0, 0.0, 0.0),
+                            child: Text(
+                              'Контактная почта',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'SF Pro Display',
                                     color: FlutterFlowTheme.of(context)
                                         .migomSecondaryText,
@@ -126,165 +161,138 @@ class _SupportWidgetState extends State<SupportWidget> {
                                     useGoogleFonts: false,
                                     lineHeight: 1.3,
                                   ),
-                        ),
-                        Text(
-                          '+7 995 900-88-99',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'SF Pro Display',
-                                color:
-                                    FlutterFlowTheme.of(context).migomPrimary,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.normal,
-                                useGoogleFonts: false,
-                                lineHeight: 1.3,
-                              ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 60.0, 0.0, 0.0),
-                          child: Text(
-                            'Контактная почта',
+                            ),
+                          ),
+                          Text(
+                            'migom.inc@gmail.com',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'SF Pro Display',
-                                  color: FlutterFlowTheme.of(context)
-                                      .migomSecondaryText,
+                                  color:
+                                      FlutterFlowTheme.of(context).migomPrimary,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: false,
                                   lineHeight: 1.3,
                                 ),
                           ),
-                        ),
-                        Text(
-                          'migom.inc@gmail.com',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'SF Pro Display',
-                                color:
-                                    FlutterFlowTheme.of(context).migomPrimary,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.normal,
-                                useGoogleFonts: false,
-                                lineHeight: 1.3,
-                              ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 60.0, 0.0, 0.0),
-                          child: Text(
-                            'Перейдите в один из мессенджеров, если вы хотите пообщаться с одним из наших менеджеров.',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'SF Pro Display',
-                                  color: FlutterFlowTheme.of(context)
-                                      .migomSecondaryText,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
-                                  lineHeight: 1.3,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 30.0, 0.0, 0.0),
-                          child: FaIcon(
-                            FontAwesomeIcons.angleDown,
-                            color: Color(0xFF646464),
-                            size: 24.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xFFF8F8FA),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Telegram',
-                        options: FFButtonOptions(
-                          width: 335.0,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF25A3E1),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 60.0, 0.0, 0.0),
+                            child: Text(
+                              'Перейдите в один из мессенджеров, если вы хотите пообщаться с одним из наших менеджеров.',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'SF Pro Display',
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .migomSecondaryText,
                                     fontSize: 16.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.normal,
                                     useGoogleFonts: false,
                                     lineHeight: 1.3,
                                   ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {},
-                        text: 'Whatsapp',
-                        options: FFButtonOptions(
-                          width: 335.0,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF25D366),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'SF Pro Display',
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w600,
-                                    useGoogleFonts: false,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 30.0, 0.0, 0.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.angleDown,
+                              color: Color(0xFF646464),
+                              size: 24.0,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF8F8FA),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            launchURL('https://t.me/tuvixter');
+                          },
+                          text: 'Telegram',
+                          options: FFButtonOptions(
+                            width: 335.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Color(0xFF25A3E1),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'SF Pro Display',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  useGoogleFonts: false,
+                                  lineHeight: 1.3,
+                                ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 20.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            launchURL(
+                                'https://api.whatsapp.com/message/LBHAEDTRBM25K1?autoload=1&app_absent=0');
+                          },
+                          text: 'Whatsapp',
+                          options: FFButtonOptions(
+                            width: 335.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Color(0xFF25D366),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'SF Pro Display',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  useGoogleFonts: false,
+                                ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -14,6 +14,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'my_profile_model.dart';
 export 'my_profile_model.dart';
+import '../../requests/home.dart';
+import 'package:expandable_text/expandable_text.dart';
 
 class MyProfileWidget extends StatefulWidget {
   const MyProfileWidget({Key? key}) : super(key: key);
@@ -197,11 +199,14 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Text(
+                                      builder: (context) => ExpandableText(
                                         valueOrDefault(
                                             currentUserDocument?.description,
                                             ''),
                                         textAlign: TextAlign.center,
+                                        expandText: 'Показать еще',
+                                        linkColor: Color(0xfff93448),
+                                        maxLines: 2,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
@@ -729,6 +734,106 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                             ),
                                                           ],
                                                         ),
+                                                        Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical: 10),
+                                                          child: ElevatedButton(
+                                                            style: ButtonStyle(
+                                                              backgroundColor:
+                                                                  MaterialStatePropertyAll(
+                                                                Color(
+                                                                    0xffffffff),
+                                                              ),
+                                                              elevation:
+                                                                  MaterialStatePropertyAll(
+                                                                      0),
+                                                              padding:
+                                                                  MaterialStatePropertyAll(
+                                                                EdgeInsets
+                                                                    .symmetric(
+                                                                        vertical:
+                                                                            9,
+                                                                        horizontal:
+                                                                            12),
+                                                              ),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .push(
+                                                                MaterialPageRoute(
+                                                                  builder: (
+                                                                    context,
+                                                                  ) =>
+                                                                      RequestsHome(
+                                                                          eventRef:
+                                                                              containerEventsRecord.reference),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: FutureBuilder<
+                                                                AggregateQuerySnapshot>(
+                                                              future: FirebaseFirestore
+                                                                  .instance
+                                                                  .collection(
+                                                                      'registrations')
+                                                                  .where('host',
+                                                                      isEqualTo:
+                                                                          '/users/${containerEventsRecord.reference.id}')
+                                                                  .count()
+                                                                  .get(),
+                                                              builder: (context,
+                                                                  snapshot) {
+                                                                if (!snapshot
+                                                                    .hasData)
+                                                                  return const SizedBox();
+                                                                return Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Text(
+                                                                      'Заявки',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontFamily:
+                                                                            'SF Pro Display',
+                                                                        color: Color(
+                                                                            0xff09090a),
+                                                                        fontSize:
+                                                                            16,
+                                                                        height:
+                                                                            1.3,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                    ),
+                                                                    Text(
+                                                                      snapshot
+                                                                          .data!
+                                                                          .count
+                                                                          .toString(),
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontFamily:
+                                                                            'SF Pro Display',
+                                                                        color: Color(
+                                                                            0xff646464),
+                                                                        fontSize:
+                                                                            16,
+                                                                        height:
+                                                                            1.3,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                );
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ),
                                                         Text(
                                                           containerEventsRecord
                                                               .name,
@@ -1231,16 +1336,13 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                         ),
                                       ),
                                       FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                        borderColor: Color(0xff09090a),
                                         borderRadius: 20.0,
                                         borderWidth: 1.0,
                                         buttonSize: 40.0,
                                         icon: FaIcon(
-                                          FontAwesomeIcons.ellipsisH,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                          FontAwesomeIcons.ellipsis,
+                                          color: Color(0xff000000),
                                           size: 24.0,
                                         ),
                                         onPressed: () async {
@@ -1369,6 +1471,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .lineThrough,
                                                               ),
                                                         ),
                                                       ),
@@ -1520,6 +1625,81 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             hasIcon: false,
                                           ),
                                         ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 10),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStatePropertyAll(
+                                            Color(0xffffffff),
+                                          ),
+                                          elevation:
+                                              MaterialStatePropertyAll(0),
+                                          padding: MaterialStatePropertyAll(
+                                            EdgeInsets.symmetric(
+                                                vertical: 9, horizontal: 12),
+                                          ),
+                                          shape: MaterialStatePropertyAll(
+                                              RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  side: BorderSide(
+                                                      color: Color(0xff646464),
+                                                      width: 2)))),
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (
+                                              context,
+                                            ) =>
+                                                RequestsHome(
+                                                    eventRef: columnEventsRecord
+                                                        .reference),
+                                          ),
+                                        );
+                                      },
+                                      child:
+                                          FutureBuilder<AggregateQuerySnapshot>(
+                                        future: FirebaseFirestore.instance
+                                            .collection('registrations')
+                                            .where('host',
+                                                isEqualTo:
+                                                    '/users/${columnEventsRecord.reference.id}')
+                                            .count()
+                                            .get(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData)
+                                            return const SizedBox();
+                                          return Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                'Заявки',
+                                                style: TextStyle(
+                                                  fontFamily: 'SF Pro Display',
+                                                  color: Color(0xff09090a),
+                                                  fontSize: 16,
+                                                  height: 1.3,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              Text(
+                                                snapshot.data!.count.toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'SF Pro Display',
+                                                  color: Color(0xff646464),
+                                                  fontSize: 16,
+                                                  height: 1.3,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),

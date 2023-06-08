@@ -191,13 +191,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             borderWidth: 1.0,
                             buttonSize: 44.0,
                             fillColor: Color(0xFFF5F5F5),
-                            icon: FaIcon(
-                              FontAwesomeIcons.facebookMessenger,
+                            icon: Icon(
+                              Icons.support,
                               color: FlutterFlowTheme.of(context).tertiary,
                               size: 24.0,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              context.pushNamed('support');
                             },
                           ),
                         ),
@@ -459,7 +459,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               ),
                                                               Container(
                                                                 width: 103.0,
-                                                                height: 42.0,
+                                                                height: 32.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -558,7 +558,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               ),
                                                               Container(
                                                                 width: 103.0,
-                                                                height: 42.0,
+                                                                height: 32.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -612,7 +612,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             [])
                                                         .contains(
                                                             e.reference) &&
-                                                    (e.date ==
+                                                    (e.date! >=
                                                         getCurrentTimestamp))
                                                 .toList();
                                             return SingleChildScrollView(
@@ -624,10 +624,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     list.length, (listIndex) {
                                                   final listItem =
                                                       list[listIndex];
-                                                  return EventCardWidget(
-                                                    key: Key(
-                                                        'Keyg08_${listIndex}_of_${list.length}'),
-                                                    eventDoc: listItem,
+                                                  return Padding(
+                                                    child: EventCardWidget(
+                                                      key: Key(
+                                                          'Keyg08_${listIndex}_of_${list.length}'),
+                                                      eventDoc: listItem,
+                                                    ),
+                                                    padding: EdgeInsets.only(
+                                                        bottom: 15, top: 15),
                                                   );
                                                 }),
                                               ),
@@ -1011,10 +1015,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   list2.length, (list2Index) {
                                                 final list2Item =
                                                     list2[list2Index];
-                                                return EventCardWidget(
-                                                  key: Key(
-                                                      'Keydkv_${list2Index}_of_${list2.length}'),
-                                                  eventDoc: list2Item,
+                                                return Padding(
+                                                  child: EventCardWidget(
+                                                    key: Key(
+                                                        'Keydkv_${list2Index}_of_${list2.length}'),
+                                                    eventDoc: list2Item,
+                                                  ),
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 15, top: 15),
                                                 );
                                               }),
                                             ),

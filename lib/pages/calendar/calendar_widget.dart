@@ -224,7 +224,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                     FlutterFlowTheme.of(context).primary,
                                 tabs: [
                                   Tab(
-                                    text: 'Активные ',
+                                    text: 'Активные',
                                   ),
                                   Tab(
                                     text: 'Архив',

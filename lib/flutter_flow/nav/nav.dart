@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:migom/requests/one.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
 import '/backend/backend.dart';
@@ -10,6 +11,7 @@ import '../../auth/base_auth_user_provider.dart';
 import '../../backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '../../change_phone/info.dart';
+import '../../request_for_premium/post.dart';
 
 import '../../index.dart';
 import '../../main.dart';
@@ -17,9 +19,11 @@ import '../lat_lng.dart';
 import '../place.dart';
 import '../../change_phone/change_phone_widget.dart';
 import 'serialization_util.dart';
-import '../../friends/firends_widget.dart';
+import '../../friends/friends_widget.dart';
 import '../../delete_account/widget.dart';
 import '../../about_us/home.dart';
+import '../../change_phone/change_phone_final.dart';
+import '../../requests/home.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -271,7 +275,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'abouthome',
               path: 'about',
               builder: (context, params) => AboutHome(),
-            )
+            ),
+            // FFRoute(
+            //     name: 'premiumreq',
+            //     path: 'premiumreq',
+            //     builder: (context, params) => PostRequest()),
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

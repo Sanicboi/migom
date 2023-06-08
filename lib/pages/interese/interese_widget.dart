@@ -325,6 +325,8 @@ class _IntereseWidgetState extends State<IntereseWidget> {
                               description: widget.description,
                               image2: widget.photo2,
                               profileFilled: true,
+                              isVerified: false,
+                              showEvents: true,
                             ),
                             'interests': _model.interests,
                           };

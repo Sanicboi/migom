@@ -320,6 +320,8 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                                                 color: Color(0x80FFFFFF),
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.w500,
+                                                decoration:
+                                                    TextDecoration.lineThrough,
                                               ),
                                         ),
                                       ),

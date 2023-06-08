@@ -38,7 +38,9 @@ class AddEventModel extends FlutterFlowModel {
     if (val == null || val.isEmpty) {
       return 'Заполните пробел';
     }
-
+    if (val.length > 50) {
+      return 'Имя должно быть не больше 50 символов.';
+    }
     return null;
   }
 
@@ -102,5 +104,4 @@ class AddEventModel extends FlutterFlowModel {
   }
 
   /// Additional helper methods are added here.
-
 }

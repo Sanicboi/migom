@@ -146,7 +146,7 @@ class _ChangeEventWidgetState extends State<ChangeEventWidget> {
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
-                                      context.safePop();
+                                      context.pop();
                                     },
                                   ),
                                 ),

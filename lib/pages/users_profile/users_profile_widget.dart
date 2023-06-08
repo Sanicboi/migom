@@ -1710,6 +1710,9 @@ class _UsersProfileWidgetState extends State<UsersProfileWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
+                                                                    decoration:
+                                                                        TextDecoration
+                                                                            .lineThrough,
                                                                   ),
                                                             ),
                                                           ),

@@ -1,21 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:masked_text/masked_text.dart';
-
 import 'package:flutter/material.dart';
 import 'package:migom/flutter_flow/flutter_flow_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import './change_phone_final.dart';
 
-class ChangePhone extends StatefulWidget {
-  const ChangePhone({super.key});
-
+class ChangePhoneConfirm extends StatefulWidget {
+  const ChangePhoneConfirm({super.key, required this.verId});
+  final String verId;
   @override
-  State<ChangePhone> createState() => _ChangePhoneState();
+  State<ChangePhoneConfirm> createState() => _ChangePhoneConfirmState();
 }
 
-class _ChangePhoneState extends State<ChangePhone> {
-  String newPhone = '';
-  String verificationId = '';
+class _ChangePhoneConfirmState extends State<ChangePhoneConfirm> {
+  String pinCode = '';
   bool valid = false;
   @override
   Widget build(BuildContext context) {
@@ -24,11 +20,12 @@ class _ChangePhoneState extends State<ChangePhone> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   child: Padding(
@@ -73,58 +70,43 @@ class _ChangePhoneState extends State<ChangePhone> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(20, 15, 0, 15),
                   child: Text(
-                    'НОВЫЙ НОМЕР ТЕЛЕФОНА',
+                    'КОД ИЗ СМС',
                     style: TextStyle(
                       color: Color(0xff646464),
-                      fontSize: 14,
                       fontFamily: 'SF Pro Display',
+                      fontSize: 14,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
                   child: Padding(
                     padding: EdgeInsets.all(20),
-                    child: MaskedTextField(
-                      style: TextStyle(
-                        color: Color(0xff09090a),
-                        fontFamily: 'SF Pro Display',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        height: 1.3,
-                      ),
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(12),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: Color(0xffe1e1e1),
-                      ),
-                      mask: '+# (###) ###-##-##',
+                    child: PinCodeTextField(
+                      appContext: context,
+                      length: 6,
                       onChanged: (value) {
-                        this.newPhone = value;
-                        if (value.length == 18) {
+                        this.pinCode = value;
+                        if (value.length == 6) {
                           setState(() {
                             this.valid = true;
                           });
                         }
-                        if (value.length != 18 && this.valid) {
+                        if (value.length != 6 && this.valid) {
                           setState(() {
                             this.valid = false;
                           });
                         }
                       },
+                      hintCharacter: '●',
                     ),
                   ),
-                )
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color(0xffffffff),
+                  ),
+                ),
               ],
-              crossAxisAlignment: CrossAxisAlignment.start,
             ),
             Container(
               color: Color(0xffffffff),
@@ -139,15 +121,10 @@ class _ChangePhoneState extends State<ChangePhone> {
                   ),
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.sms_outlined,
-                        color: Color(this.valid ? 0xff09090a : 0xffcccccc),
-                        size: 24,
-                      ),
                       Padding(
                         padding: EdgeInsets.only(left: 10),
                         child: Text(
-                          'Отправить код',
+                          'Изменить номер',
                           style: TextStyle(
                             color: Color(this.valid ? 0xff09090a : 0xffcccccc),
                             fontFamily: 'SF Pro Display',
@@ -163,29 +140,16 @@ class _ChangePhoneState extends State<ChangePhone> {
                   ),
                   onPressed: () async {
                     if (!this.valid) return;
-                    await FirebaseAuth.instance.verifyPhoneNumber(
-                        phoneNumber: this.newPhone,
-                        verificationCompleted:
-                            (PhoneAuthCredential credential) async {
-                          await FirebaseAuth.instance.currentUser
-                              ?.updatePhoneNumber(credential);
-                          context.pushNamed('_initialize');
-                        },
-                        verificationFailed: (FirebaseException ex) {
-                          debugPrint(ex.message);
-                        },
-                        codeSent: (String verifId, int? resendToken) {
-                          this.verificationId = verifId;
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ChangePhoneConfirm(
-                                  verId: this.verificationId)));
-                        },
-                        codeAutoRetrievalTimeout: (String verifId) {
-                          this.verificationId = verifId;
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ChangePhoneConfirm(
-                                  verId: this.verificationId)));
-                        });
+                    PhoneAuthCredential credential =
+                        PhoneAuthProvider.credential(
+                            verificationId: widget.verId,
+                            smsCode: this.pinCode);
+                    final result = await FirebaseAuth.instance.currentUser
+                        ?.updatePhoneNumber(credential)
+                        .onError((FirebaseAuthException error, stackTrace) {
+                      showSnackbar(context, valueOrDefault(error.message, ''));
+                    });
+                    context.pushNamed('_initialize');
                   },
                 ),
               ),

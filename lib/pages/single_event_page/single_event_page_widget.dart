@@ -150,7 +150,7 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
-                                                'https://picsum.photos/seed/310/600',
+                                                widget.ev!.fotoPath,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -187,15 +187,32 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
-                                      child: AutoSizeText(
-                                        functions.toCaps(widget.ev!.name),
+                                      child: Text(
+                                        functions
+                                            .toCaps(widget.ev!.name)
+                                            .maybeHandleOverflow(
+                                                maxChars: MediaQuery.of(context)
+                                                            .size
+                                                            .width >
+                                                        300
+                                                    ? 8
+                                                    : 4,
+                                                replacement: '...'),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
                                               fontFamily: 'Ermilov',
                                               fontWeight: FontWeight.bold,
                                               useGoogleFonts: false,
+                                              fontSize: MediaQuery.of(context)
+                                                          .size
+                                                          .width >
+                                                      350
+                                                  ? 18
+                                                  : 10,
                                             ),
+                                        overflow: TextOverflow.ellipsis,
+                                        softWrap: true,
                                       ),
                                     ),
                                     if (widget.ev!.isAgeRestricted)
@@ -293,14 +310,13 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                 .secondaryBackground,
                           ),
                           child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: Container(
-                                  width: 103.0,
                                   height: 59.0,
+                                  width: 110,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15.0),
@@ -311,7 +327,7 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Text(
-                                        'Тип ивент',
+                                        'Тип ивента',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -356,43 +372,8 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15.0),
                                   child: Container(
-                                    width: 133.0,
                                     height: 59.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          'Длительность',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                        Text(
-                                          valueOrDefault<String>(
-                                            '${widget.ev!.lasts.toString()} часов',
-                                            '0 часов',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  child: Container(
-                                    width: 133.0,
-                                    height: 59.0,
+                                    width: 130,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(15.0),
@@ -436,7 +417,7 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15.0),
                           child: Image.network(
@@ -484,6 +465,8 @@ class _SingleEventPageWidgetState extends State<SingleEventPageWidget> {
                                                 color: Colors.black,
                                                 useGoogleFonts: false,
                                               ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                         collapsed: Padding(
                                           padding:

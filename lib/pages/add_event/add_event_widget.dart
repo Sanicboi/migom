@@ -18,6 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'add_event_model.dart';
+import 'package:uuid/uuid.dart';
 export 'add_event_model.dart';
 
 class AddEventWidget extends StatefulWidget {
@@ -52,6 +53,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
     _unfocusNode.dispose();
     super.dispose();
   }
+
+  String id = Uuid().v4();
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +145,11 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Ermilov',
-                                      fontSize: 18.0,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width >
+                                                  340
+                                              ? 18
+                                              : 12,
                                       fontWeight: FontWeight.bold,
                                       useGoogleFonts: false,
                                       lineHeight: 1.3,
@@ -337,7 +344,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'ОГРАНИЧЕНИЕ ВОЗРАСТА',
+                                        'ОГРАНИЧЕНИЕ\nВОЗРАСТА',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -511,7 +518,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
-                        height: 166.0,
+                        height: 250.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15.0),
@@ -530,7 +537,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'ЗАГРУЗИТЬ МЕДИА ФАЙЛЫ',
+                                      'ЗАГРУЗИТЬ\nМЕДИА ФАЙЛЫ',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -547,7 +554,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 100.0,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -566,7 +573,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                               child: Image.network(
                                                 _model.image!,
                                                 width: double.infinity,
-                                                height: 200.0,
+                                                height: 250.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -607,7 +614,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                           _model.image == '')
                                         Container(
                                           width: double.infinity,
-                                          height: 100.0,
+                                          height: 150.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -726,7 +733,12 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'SF Pro Display',
-                                                                fontSize: 16.0,
+                                                                fontSize: MediaQuery.of(context)
+                                                                            .size
+                                                                            .width >
+                                                                        340
+                                                                    ? 18
+                                                                    : 12,
                                                                 useGoogleFonts:
                                                                     false,
                                                               ),
@@ -801,11 +813,10 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                   controller:
                                       _model.dropDownValueController3 ??=
                                           FormFieldController<String>(null),
-                                  options: ['m', 'w', 'd'],
+                                  options: ['m', 'w'],
                                   optionLabels: [
                                     'Раз в месяц',
                                     'Раз в неделю',
-                                    'Раз в день'
                                   ],
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue3 = val),
@@ -1215,7 +1226,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                           controller: _model.textController5,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: '0 %',
+                                            hintText: '0',
                                             hintStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .headlineSmall
@@ -1262,11 +1273,10 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryText,
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            prefixIcon: FaIcon(
-                                              FontAwesomeIcons.percentage,
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                5.0, 10.0, 10.0, 5.0),
+                                            prefixIcon: Icon(
+                                              Icons.percent,
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -1527,6 +1537,14 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                   ),
                                 ],
                               ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: 15,
+                                ),
+                                child: Image.network(
+                                  'http://95.163.240.236/api/privateqr/${id}',
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -1580,6 +1598,8 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                             : null,
                                       ),
                                       'categories': _model.category,
+                                      'linkid':
+                                          _model.privateValue! ? id : null,
                                     };
                                     var eventsRecordReference =
                                         EventsRecord.collection.doc();

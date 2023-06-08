@@ -35,7 +35,6 @@ class CreateProfileModel extends FlutterFlowModel {
     if (val == null || val.isEmpty) {
       return 'Обязательно заполните';
     }
-
     return null;
   }
 
@@ -46,7 +45,6 @@ class CreateProfileModel extends FlutterFlowModel {
     if (val == null || val.isEmpty) {
       return 'Обязательно заполните';
     }
-
     return null;
   }
 
@@ -89,5 +87,4 @@ class CreateProfileModel extends FlutterFlowModel {
   }
 
   /// Additional helper methods are added here.
-
 }

@@ -119,7 +119,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.75, 0.0, 0.0, 0.0),
                               child: Text(
-                                'СОЗДАТЬ НОВЫЙ ПРОФИЛЬ',
+                                'ЗАПОЛНИТЬ ПРОФИЛЬ',
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ),
@@ -251,6 +251,8 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                               validator: _model
                                                   .textController1Validator
                                                   .asValidator(context),
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
                                             ),
                                           ),
                                         ),
@@ -424,7 +426,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                                   _model.textController3,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText: 'Описание профилья',
+                                                hintText: 'Описание профиля',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall

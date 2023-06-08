@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'event_card_for_calendar_model.dart';
+import 'package:share_plus/share_plus.dart';
 export 'event_card_for_calendar_model.dart';
 
 class EventCardForCalendarWidget extends StatefulWidget {
@@ -242,7 +243,12 @@ class _EventCardForCalendarWidgetState
                                             fontFamily: 'SF Pro Display',
                                             color: FlutterFlowTheme.of(context)
                                                 .migomBlack,
-                                            fontSize: 16.0,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width >
+                                                    360
+                                                ? 16
+                                                : 12,
                                             useGoogleFonts: false,
                                             lineHeight: 1.3,
                                           ),
@@ -348,6 +354,8 @@ class _EventCardForCalendarWidgetState
                                                 color: Color(0x80FFFFFF),
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.w500,
+                                                decoration:
+                                                    TextDecoration.lineThrough,
                                               ),
                                         ),
                                       ),
@@ -395,6 +403,19 @@ class _EventCardForCalendarWidgetState
                         ),
                       ],
                     ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    widget.event!.name.toUpperCase(),
+                    style: TextStyle(
+                      color: Color(0xff09090a),
+                      fontSize: 18,
+                      fontFamily: 'Ermilov',
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Padding(
@@ -449,7 +470,9 @@ class _EventCardForCalendarWidgetState
                             0.0, 10.0, 0.0, 10.0),
                         child: FFButtonWidget(
                           onPressed: () {
-                            print('Button pressed ...');
+                            Share.share(
+                                'Пойдем со мной на мероприятие\n\n"${widget.event!.name}"\n\nhttp://95.163.240.236/invite/${widget.event!.reference.id}',
+                                subject: "Migom");
                           },
                           text: 'Пригласить друга',
                           icon: Icon(
@@ -542,13 +565,13 @@ class _EventCardForCalendarWidgetState
                         borderWidth: 1.0,
                         buttonSize: 44.0,
                         fillColor: Color(0xFFF5F5F5),
-                        icon: FaIcon(
-                          FontAwesomeIcons.commentDots,
+                        icon: Icon(
+                          Icons.chat_outlined,
                           color: Color(0xFF09090A),
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          context.pushNamed('chat');
+                          context.pushNamed('support');
                         },
                       ),
                     ),
