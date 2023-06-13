@@ -209,7 +209,9 @@ class _AboutHomeState extends State<AboutHome> {
                               ],
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushNamed('eula2');
+                              },
                               icon: Icon(
                                 Icons.chevron_right_rounded,
                                 size: 36,

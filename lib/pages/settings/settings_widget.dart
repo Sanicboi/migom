@@ -18,6 +18,7 @@ export 'settings_model.dart';
 import '../../support/support_widget.dart';
 import '../../friends/friends_widget.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:masked_text/masked_text.dart';
 
 class SettingsWidget extends StatefulWidget {
   const SettingsWidget({Key? key}) : super(key: key);
@@ -33,6 +34,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   final _unfocusNode = FocusNode();
   String photo2Url = currentUserDocument!.image2;
   String photoUrl = currentUserPhoto;
+  String tag = currentUserDocument!.tag;
+  String name = currentUserDocument!.displayName;
 
   @override
   void initState() {
@@ -207,26 +210,62 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     : SizedBox(),
                                 Padding(
                                   padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    currentUserDocument!.displayName,
-                                    style: TextStyle(
-                                      fontFamily: 'SF Pro Display',
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                                  child: SizedBox(
+                                    child: TextField(
+                                      controller: TextEditingController(
+                                        text: name,
+                                      ),
+                                      style: TextStyle(
+                                        fontFamily: 'SF Pro Display',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      onChanged: (value) {
+                                        this.name = value;
+                                      },
+                                      onSubmitted: (value) async {
+                                        await currentUserReference!.update({
+                                          'display_name': value,
+                                        });
+                                      },
+                                      maxLength: 25,
                                     ),
+                                    width: 120,
                                   ),
                                 )
                               ],
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: 10),
-                              child: Text(
-                                '@${currentUserDocument!.tag}',
-                                style: TextStyle(
-                                  color: Color(0xff646464),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
+                              child: SizedBox(
+                                child: TextField(
+                                  controller: TextEditingController(
+                                      text: '@${this.tag}'),
+                                  onChanged: (value) {
+                                    this.tag = value.replaceAll(r'@', '');
+                                  },
+                                  onSubmitted: (value) async {
+                                    debugPrint('Submit');
+                                    await currentUserReference!.update({
+                                      'tag': value.replaceAll(r'@', ''),
+                                    });
+                                  },
+                                  style: TextStyle(
+                                    fontFamily: 'SF Pro Display',
+                                    fontSize: 14,
+                                    color: Color(0xff646464),
+                                  ),
+                                  decoration: InputDecoration(
+                                    suffixIcon: Icon(Icons.edit_outlined),
+                                    border: InputBorder.none,
+                                  ),
+                                  expands: false,
+                                  maxLength: 25,
                                 ),
+                                width: 120,
                               ),
                             ),
                             Padding(

@@ -24,6 +24,7 @@ import '../../delete_account/widget.dart';
 import '../../about_us/home.dart';
 import '../../change_phone/change_phone_final.dart';
 import '../../requests/home.dart';
+import '../../conditions (eula2)/widget.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -280,6 +281,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             //     name: 'premiumreq',
             //     path: 'premiumreq',
             //     builder: (context, params) => PostRequest()),
+            FFRoute(
+                name: 'eula2',
+                path: 'eula2',
+                builder: (context, params) => Eula2Widget()),
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

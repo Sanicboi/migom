@@ -70,7 +70,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 442.5,
+                        height: 450,
                         decoration: BoxDecoration(
                           color: Color(0xFFF93448),
                           image: DecorationImage(
@@ -174,7 +174,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               40.0, 200.0, 40.0, 0.0),
                           child: Text(
-                            'Для облегчения продвижения мероприятий, дополнительные мероприятия в комплекте, уникальные функции "Migom PRO" и значек PRO около имени',
+                            'Что входит в тариф:\n\n1. Пакет размещения 30 мероприятий\n2. Приоритетный вывод мероприятий\n  в рекомендациях пользователям\n',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -182,13 +182,15 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                   color:
                                       FlutterFlowTheme.of(context).migomWhite,
                                   useGoogleFonts: false,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 270.0, 20.0, 0.0),
+                            20.0, 300.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -203,7 +205,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
+                                      10.0, 20.0, 10.0, 10.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -304,7 +306,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                                 ],
                                               ),
                                               Text(
-                                                '259Р в месяц',
+                                                '415Р в месяц',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -338,7 +340,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                                         ),
                                                       ),
                                                       TextSpan(
-                                                        text: '3108Р ',
+                                                        text: '5998Р ',
                                                         style: TextStyle(
                                                           color:
                                                               Color(0xFF646464),
@@ -353,7 +355,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                                         style: TextStyle(),
                                                       ),
                                                       TextSpan(
-                                                        text: '2200Р в год',
+                                                        text: '4990Р в год',
                                                         style: TextStyle(
                                                           color:
                                                               Color(0xFF646464),
@@ -443,7 +445,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                             ],
                                           ),
                                           Text(
-                                            '359Р в месяц',
+                                            '499Р в месяц',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -480,7 +482,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '30 ДОПОЛНИТЕЛЬНЫХ МЕРОПРИЯТИЙ',
+                                        'ДОПОЛНИТЕЛЬНЫЕ\nУСЛУГИ',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -497,7 +499,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 0.0),
                                         child: Text(
-                                          'При покупке подписки "Migom PRO" вам автоматически начисляется 30 мероприятий, однако если вы считаете что этого недостаточно вы можете докупить их',
+                                          '50 дополнительных мероприятий',
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -537,7 +539,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'ДОБАВИТЬ ЕЩЕ',
+                                                'ДОБАВИТЬ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -553,176 +555,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                                         ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 10.0, 8.0, 10.0),
-                                              child: Container(
-                                                width: 58.0,
-                                                height: 22.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFFFDE31),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          6.0),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      '- 10%',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'SF Pro Display',
-                                                                fontSize: 16.0,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
                                           ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model.textController,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText: 'от 10 до 50',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'SF Pro Display',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .migomSecondaryText,
-                                                  fontSize: 16.0,
-                                                  useGoogleFonts: false,
-                                                ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .migomBGGrey,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'SF Pro Display',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .migomSecondaryText,
-                                                fontSize: 16.0,
-                                                useGoogleFonts: false,
-                                              ),
-                                          validator: _model
-                                              .textControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: RichText(
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Вместо ',
-                                                style: TextStyle(),
-                                              ),
-                                              TextSpan(
-                                                text: '+1135Р ',
-                                                style: TextStyle(
-                                                  color: Color(0xFF646464),
-                                                  fontSize: 14.0,
-                                                  decoration: TextDecoration
-                                                      .lineThrough,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: '--- ',
-                                                style: TextStyle(),
-                                              ),
-                                              TextSpan(
-                                                text: '+1025Р в год',
-                                                style: TextStyle(
-                                                  color: Color(0xFF646464),
-                                                  fontSize: 14.0,
-                                                ),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'SF Pro Display',
-                                                  color: Color(0xFF646464),
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts: false,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Вы можете добавить к тарифу еще дополнительных мероприятий  и получить скидку в размере 10%.',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'SF Pro Display',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .migomSecondaryText,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
-                                              ),
                                         ),
                                       ),
                                     ],
@@ -758,7 +591,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           queryParameters: params);
                       await launchUrl(uri);
                     },
-                    text: 'Подключить за Р в год',
+                    text: 'Подключить за 9999Р в год',
                     options: FFButtonOptions(
                       width: 335.0,
                       height: 40.0,
