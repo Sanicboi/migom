@@ -231,7 +231,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           'display_name': value,
                                         });
                                       },
-                                      maxLength: 25,
+                                      maxLines: 1,
                                     ),
                                     width: 120,
                                   ),
@@ -263,7 +263,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     border: InputBorder.none,
                                   ),
                                   expands: false,
-                                  maxLength: 25,
+                                  maxLines: 1,
                                 ),
                                 width: 120,
                               ),
@@ -452,73 +452,76 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Confidentiality');
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 66.0,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 0.0, 0.0, 0.0),
-                                  child: Icon(
-                                    Icons.shield,
-                                    color: Colors.black,
-                                    size: 24.0,
+                  GestureDetector(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Confidentiality');
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 66.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 0.0, 0.0),
+                                    child: Icon(
+                                      Icons.shield,
+                                      color: Colors.black,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 0.0, 0.0, 0.0),
-                                  child: AutoSizeText(
-                                    'КОНФИДЕНЦИАЛЬНОСТЬ',
-                                    textAlign: TextAlign.start,
-                                    maxLines: 2,
-                                    style: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .override(
-                                          fontFamily: 'Ermilov',
-                                          fontWeight: FontWeight.bold,
-                                          useGoogleFonts: false,
-                                        ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 0.0, 0.0),
+                                    child: AutoSizeText(
+                                      'КОНФИДЕНЦИАЛЬНОСТЬ',
+                                      textAlign: TextAlign.start,
+                                      maxLines: 2,
+                                      style: FlutterFlowTheme.of(context)
+                                          .displaySmall
+                                          .override(
+                                            fontFamily: 'Ermilov',
+                                            fontWeight: FontWeight.bold,
+                                            useGoogleFonts: false,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 60.0,
-                              icon: Icon(
-                                Icons.keyboard_arrow_right,
-                                color: FlutterFlowTheme.of(context).migomBlack,
-                                size: 30.0,
+                                ],
                               ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
-                          ],
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                icon: Icon(
+                                  Icons.keyboard_arrow_right,
+                                  color:
+                                      FlutterFlowTheme.of(context).migomBlack,
+                                  size: 30.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -764,63 +767,69 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 66.0,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.help_outline,
-                                  color: Colors.black,
-                                  size: 24.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SupportWidget()));
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 66.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: Icon(
+                                    Icons.help_outline,
+                                    color: Colors.black,
+                                    size: 24.0,
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: AutoSizeText(
-                                  'ПОМОЩЬ',
-                                  textAlign: TextAlign.start,
-                                  maxLines: 2,
-                                  style: FlutterFlowTheme.of(context)
-                                      .displaySmall
-                                      .override(
-                                        fontFamily: 'Ermilov',
-                                        fontWeight: FontWeight.bold,
-                                        useGoogleFonts: false,
-                                      ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: AutoSizeText(
+                                    'ПОМОЩЬ',
+                                    textAlign: TextAlign.start,
+                                    maxLines: 2,
+                                    style: FlutterFlowTheme.of(context)
+                                        .displaySmall
+                                        .override(
+                                          fontFamily: 'Ermilov',
+                                          fontWeight: FontWeight.bold,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 60.0,
-                            icon: Icon(
-                              Icons.keyboard_arrow_right,
-                              color: FlutterFlowTheme.of(context).migomBlack,
-                              size: 30.0,
+                              ],
                             ),
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => SupportWidget()));
-                            },
-                          ),
-                        ],
+                            FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                Icons.keyboard_arrow_right,
+                                color: FlutterFlowTheme.of(context).migomBlack,
+                                size: 30.0,
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SupportWidget()));
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

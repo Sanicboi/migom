@@ -192,6 +192,74 @@ class _ConfidentialityWidgetState extends State<ConfidentialityWidget> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: GestureDetector(
+                    onTap: () {
+                      context.pushNamed('eula');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(0xffffffff),
+                      ),
+                      child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'ПОЛИТИКА\nКОНФИДЕНЦИАЛЬНОСТИ',
+                              style: TextStyle(
+                                fontFamily: 'Ermilov',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                color: Color(0xff09090a),
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right_rounded,
+                              size: 24,
+                            ),
+                          ]),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: GestureDetector(
+                    onTap: () {
+                      context.pushNamed('eula2');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(0xffffffff),
+                      ),
+                      child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'УСЛОВИЯ\nИСПОЛЬЗОВАНИЯ',
+                              style: TextStyle(
+                                fontFamily: 'Ermilov',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                height: 1.3,
+                                color: Color(0xff09090a),
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right_rounded,
+                              size: 24,
+                            ),
+                          ]),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
