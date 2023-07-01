@@ -20,6 +20,8 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.17.0"
 
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -33,6 +35,7 @@ dependencies:
   cloud_functions: 4.0.6
   cloud_functions_platform_interface: 5.1.25
   cloud_functions_web: 4.3.14
+  app_tracking_transparency: ^2.0.4
   csv: 5.0.1
   dropdown_button2: 2.0.0
   easy_debounce: 2.0.1

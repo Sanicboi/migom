@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 import 'start_page111_model.dart';
 export 'start_page111_model.dart';
 
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+
 class StartPage111Widget extends StatefulWidget {
   const StartPage111Widget({Key? key}) : super(key: key);
 
@@ -27,7 +29,9 @@ class _StartPage111WidgetState extends State<StartPage111Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => StartPage111Model());
-
+    Future<TrackingStatus> status =
+        AppTrackingTransparency.requestTrackingAuthorization();
+    status.then((value) async {});
     _model.textController ??= TextEditingController();
     authManager.handlePhoneAuthStateChanges(context);
   }

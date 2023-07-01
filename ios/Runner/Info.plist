@@ -16,7 +16,8 @@
 	<string>Migom</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Это будет использовано для персонализации приложения</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
