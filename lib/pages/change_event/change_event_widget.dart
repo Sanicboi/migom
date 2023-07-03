@@ -208,7 +208,7 @@ class _ChangeEventWidgetState extends State<ChangeEventWidget> {
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.textController1,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'Название мероприятия',
@@ -465,7 +465,7 @@ class _ChangeEventWidgetState extends State<ChangeEventWidget> {
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.limitPlacesController,
-                                      autofocus: true,
+                                      autofocus: false,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
@@ -1043,7 +1043,7 @@ class _ChangeEventWidgetState extends State<ChangeEventWidget> {
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.fulTextController,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Полное описание мероприятия',
@@ -1130,7 +1130,7 @@ class _ChangeEventWidgetState extends State<ChangeEventWidget> {
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.textController4,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: '0 ',

@@ -95,7 +95,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               width: 227.0,
                               child: TextFormField(
                                 controller: _model.textController,
-                                autofocus: true,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'Поиск',

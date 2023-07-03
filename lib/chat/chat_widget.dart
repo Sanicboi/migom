@@ -90,7 +90,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                             Expanded(
                               child: TextFormField(
                                 controller: _model.textController,
-                                autofocus: true,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',

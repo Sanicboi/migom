@@ -196,7 +196,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.textController1,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'Название мероприятия',
@@ -446,7 +446,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.limitPlacesController,
-                                      autofocus: true,
+                                      autofocus: false,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
@@ -794,14 +794,19 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'МНОГОРАЗОВЫЙ ИВЕНТ',
+                                      'МНОГОРАЗОВЫЙ\nИВЕНТ',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
                                             fontFamily: 'Ermilov',
                                             color: FlutterFlowTheme.of(context)
                                                 .migomBlack,
-                                            fontSize: 18.0,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width >
+                                                    300
+                                                ? 18
+                                                : 16,
                                             useGoogleFonts: false,
                                           ),
                                     ),
@@ -1027,7 +1032,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller: _model.fulTextController,
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Полное описание мероприятия',
@@ -1114,7 +1119,7 @@ class _AddEventWidgetState extends State<AddEventWidget> {
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.textController4,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: '0 ',

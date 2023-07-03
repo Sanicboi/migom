@@ -124,7 +124,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                             Expanded(
                               child: TextFormField(
                                 controller: _model.textController,
-                                autofocus: true,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'Поиск',

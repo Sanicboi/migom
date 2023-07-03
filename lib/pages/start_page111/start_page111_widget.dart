@@ -94,7 +94,7 @@ class _StartPage111WidgetState extends State<StartPage111Widget> {
                           Duration(milliseconds: 100),
                           () => setState(() {}),
                         ),
-                        autofocus: true,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,

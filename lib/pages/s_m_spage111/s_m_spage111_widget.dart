@@ -110,7 +110,7 @@ class _SMSpage111WidgetState extends State<SMSpage111Widget> {
                                   ),
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           enableActiveFill: false,
-                          autoFocus: true,
+                          autoFocus: false,
                           enablePinAutofill: true,
                           errorTextSpace: 16.0,
                           showCursor: true,

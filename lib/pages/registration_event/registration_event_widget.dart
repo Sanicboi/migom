@@ -176,7 +176,7 @@ class _RegistrationEventWidgetState extends State<RegistrationEventWidget> {
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.textController1,
-                                  autofocus: true,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'Как вас зовут',
@@ -249,7 +249,7 @@ class _RegistrationEventWidgetState extends State<RegistrationEventWidget> {
                                 width: double.infinity,
                                 child: TextFormField(
                                   controller: _model.textController2,
-                                  autofocus: true,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'Введите номер толефона',
