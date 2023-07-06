@@ -235,8 +235,8 @@ class _EventCardForCalendarWidgetState
                                     ),
                                     Text(
                                       widget.event!.hasLimit
-                                          ? 'Мест: ${functions.getDifference(widget.event!.limit, containerCount).toString()} из ${widget.event!.limit.toString()}'
-                                          : 'Мест: не ограничено',
+                                          ? 'Мест:\n${functions.getDifference(widget.event!.limit, containerCount).toString()} из ${widget.event!.limit.toString()}'
+                                          : 'Мест:\nне ограничено',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

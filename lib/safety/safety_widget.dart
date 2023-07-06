@@ -271,9 +271,10 @@ class _SafetyWidgetState extends State<SafetyWidget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           FaIcon(
-                            FontAwesomeIcons.trashAlt,
+                            FontAwesomeIcons.trashCan,
                             color: Color(0xFFFF0922),
                             size: 24.0,
                           ),

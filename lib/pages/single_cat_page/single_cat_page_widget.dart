@@ -133,10 +133,15 @@ class _SingleCatPageWidgetState extends State<SingleCatPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
-                                        fontFamily: 'Ermilov',
-                                        color: Color(0xFF09090A),
-                                        useGoogleFonts: false,
-                                      ),
+                                          fontFamily: 'Ermilov',
+                                          color: Color(0xFF09090A),
+                                          useGoogleFonts: false,
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width >
+                                                  350
+                                              ? 18
+                                              : 14),
                                 ),
                               ),
                             ],

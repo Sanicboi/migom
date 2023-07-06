@@ -186,7 +186,6 @@ class _CategoriesPageWidgetState extends State<CategoriesPageWidget> {
                                 crossAxisCount: 3,
                                 crossAxisSpacing: 12.0,
                                 mainAxisSpacing: 20.0,
-                                childAspectRatio: 0.69,
                               ),
                               scrollDirection: Axis.vertical,
                               itemCount: gridViewCategoriesRecordList.length,
@@ -195,7 +194,7 @@ class _CategoriesPageWidgetState extends State<CategoriesPageWidget> {
                                     gridViewCategoriesRecordList[gridViewIndex];
                                 return Container(
                                   width: 104.0,
-                                  height: 150.0,
+                                  height: 200.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                   ),

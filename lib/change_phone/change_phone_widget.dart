@@ -90,6 +90,7 @@ class _ChangePhoneState extends State<ChangePhone> {
                   child: Padding(
                     padding: EdgeInsets.all(20),
                     child: MaskedTextField(
+                      keyboardType: TextInputType.phone,
                       style: TextStyle(
                         color: Color(0xff09090a),
                         fontFamily: 'SF Pro Display',
